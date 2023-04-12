@@ -9,7 +9,6 @@ namespace ms_filmes.Interfaces
     {
         A Adicionar(T obj);
         IEnumerable<A>BuscarTodos();
-
         A BuscarPorId(int id);
 
         bool excluir(int id);

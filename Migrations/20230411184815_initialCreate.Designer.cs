@@ -12,8 +12,8 @@ using ms_filmes.Data;
 namespace ms_filmes.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230405133057_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230411184815_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

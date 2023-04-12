@@ -19,7 +19,7 @@ namespace ms_filmes.Model.Dto
         public string Genero { get; set; }
         
         
-        public byte[] ImagemData { get; set; } // Added property for image data
+        public string ImagemData { get; set; } // Added property for image data
 
         
 

@@ -21,7 +21,7 @@ namespace ms_filmes.Model
         public string Genero { get; set; }   
 
         [NotMapped]
-        public IFormFile Imagem { get; set; }
+        public string Imagem { get; set; }
 
     }
 

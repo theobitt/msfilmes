@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ms_filmes.Data;
+using ms_filmes.Interfaces;
 using ms_filmes.Model;
 using ms_filmes.Model.Dto;
 
@@ -13,72 +14,44 @@ namespace ms_filmes.Controllers
     [Route("[controller]")]
     public class FilmesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
 
-        public FilmesController(ApplicationDbContext context)
+        private readonly IFilmes _interfaces;
+
+        public FilmesController(IFilmes interfaces)
         {
-            _context = context;
+            _interfaces = interfaces;
         }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Filme>> GetById(int id)
+        [HttpPost]
+        public IActionResult CadastrarFilme(AddFilmeDto dto, IFormFile imageFile)
         {
-            var filme = await _context.Filmes.FindAsync(id);
-
-            if (filme == null)
+            var filme = _interfaces.CadastrarFilme(dto, imageFile);
+            if (filme != null)
             {
-                return NotFound();
+                return Ok(filme);
             }
 
-            return filme;
+            return BadRequest("Não foi possível cadastrar o Filme");
+
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Filme>>> Get()
+         [HttpPost("/imagem")]
+        public IActionResult UploadImage(IFormFile imageFile)
         {
-            return await _context.Filmes.ToListAsync();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<Filme>> Add([FromForm] AddFilmeDto addFilmeDto)
-        {
-            var filme = new Filme
+            if (imageFile != null && imageFile.Length > 0)
             {
-                Titulo = addFilmeDto.Titulo,
-                Genero = addFilmeDto.Genero,
-                DataLancamento = addFilmeDto.DataLancamento
-            };
-
-            if (addFilmeDto.Imagem != null)
-            {
-                filme.Imagem = new byte[addFilmeDto.Imagem.Length];
-
-                using (var stream = addFilmeDto.Imagem.OpenReadStream())
+                using (var stream = new MemoryStream())
                 {
-                    await stream.ReadAsync(filme.Imagem);
+                    imageFile.CopyTo(stream);
+                    byte[] imageBytes = stream.ToArray();
+                    string base64String = Convert.ToBase64String(imageBytes);
+                    return Ok(new { base64Image = base64String });
                 }
             }
-
-            _context.Filmes.Add(filme);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetById), new { id = filme.Id }, filme);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
-        {
-            var filme = await _context.Filmes.FindAsync(id);
-
-            if (filme == null)
+            else
             {
-                return NotFound();
+                return BadRequest("No image file provided.");
             }
-
-            _context.Filmes.Remove(filme);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
         }
     }
 }
+    
