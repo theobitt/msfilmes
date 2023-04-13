@@ -18,8 +18,7 @@ namespace ms_filmes.Model.Dto
 
         public string Genero { get; set; }
         
-        
-        public string ImagemData { get; set; } // Added property for image data
+        public IFormFile ImagemData { get; set; } // Added property for image data
 
         
 

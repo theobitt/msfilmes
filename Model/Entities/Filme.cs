@@ -20,8 +20,7 @@ namespace ms_filmes.Model
 
         public string Genero { get; set; }   
 
-        [NotMapped]
-        public string Imagem { get; set; }
+        public byte[] Imagem { get; set; }
 
     }
 

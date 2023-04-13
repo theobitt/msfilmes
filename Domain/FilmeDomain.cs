@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using ms_filmes.Data;
 using ms_filmes.Interfaces;
 using ms_filmes.Model;
@@ -35,9 +36,10 @@ namespace ms_filmes.Domain
         {
             Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
             ReadFilmeDto readDto = _mapper.Map<ReadFilmeDto>(filme);
+            var imagemFilme = filme.Imagem;
+            readDto.Imagem = imagemFilme;
             return readDto;
         }
-
         public IEnumerable<ReadFilmeDto> BuscarTodos()
         {
             var listaFilmes = _context.Filmes.ToList();
@@ -50,7 +52,10 @@ namespace ms_filmes.Domain
             Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
             if (filme != null)
             {
-                _mapper.Map(dto, filme);
+                var stream = new MemoryStream();
+                dto.Imagem.CopyTo(stream);
+                byte[] imageBytes = stream.ToArray();
+                filme.Imagem = imageBytes;
                 ReadFilmeDto readFilmeDto = _mapper.Map<ReadFilmeDto>(filme);
                 _context.SaveChanges();
                 return readFilmeDto;
@@ -70,22 +75,23 @@ namespace ms_filmes.Domain
             return false;
         }
 
-        public ReadFilmeDto CadastrarFilme(AddFilmeDto dto, IFormFile imageFile)
+        public ReadFilmeDto CadastrarFilme(AddFilmeDto dto)
         {
-            ReadFilmeDto? Adicionado = null; 
-            if (imageFile != null && imageFile.Length > 0 && dto != null)
+            Filme filme = _mapper.Map<Filme>(dto);
+            using (var stream = new MemoryStream())
             {
-                using (var stream = new MemoryStream())
-                {
-                    imageFile.CopyTo(stream);
-                    byte[] imageBytes = stream.ToArray();
-                    string base64String = Convert.ToBase64String(imageBytes);
-
-                    dto.ImagemData = base64String;
-                    Adicionado = Adicionar(dto); 
-                }
+                dto.ImagemData.CopyTo(stream);
+                byte[] imageBytes = stream.ToArray();
+                filme.Imagem = imageBytes;
+                _context.Filmes.Add(filme);
+                _context.SaveChanges();
             }
-                    return Adicionado;
+            ReadFilmeDto readDto = _mapper.Map<ReadFilmeDto>(filme);
+            readDto.Imagem =  filme.Imagem;
+            return readDto;
+
         }
+
+        
     }
 }

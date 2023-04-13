@@ -40,6 +40,10 @@ namespace ms_filmes.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<byte[]>("Imagem")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
                     b.Property<string>("Titulo")
                         .IsRequired()
                         .HasColumnType("text");

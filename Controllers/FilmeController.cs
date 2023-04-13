@@ -22,9 +22,9 @@ namespace ms_filmes.Controllers
             _interfaces = interfaces;
         }
         [HttpPost]
-        public IActionResult CadastrarFilme(AddFilmeDto dto, IFormFile imageFile)
+        public IActionResult CadastrarFilme([FromForm]AddFilmeDto dto)
         {
-            var filme = _interfaces.CadastrarFilme(dto, imageFile);
+            var filme = _interfaces.CadastrarFilme(dto);
             if (filme != null)
             {
                 return Ok(filme);
@@ -34,23 +34,48 @@ namespace ms_filmes.Controllers
 
         }
 
-         [HttpPost("/imagem")]
-        public IActionResult UploadImage(IFormFile imageFile)
+        [HttpGet]
+        public IActionResult BuscarFilmes()
         {
-            if (imageFile != null && imageFile.Length > 0)
-            {
-                using (var stream = new MemoryStream())
-                {
-                    imageFile.CopyTo(stream);
-                    byte[] imageBytes = stream.ToArray();
-                    string base64String = Convert.ToBase64String(imageBytes);
-                    return Ok(new { base64Image = base64String });
-                }
+            IEnumerable<ReadFilmeDto> Filmes = _interfaces.BuscarTodos();
+            if(Filmes == null){
+                return NoContent();
+            } 
+            return Ok(Filmes);
+        }
+
+        [HttpGet("{id}")]
+
+        public IActionResult BuscarFilmePorId(int id)
+        {
+            ReadFilmeDto dto = _interfaces.BuscarPorId(id);
+            if(dto == null){
+                return BadRequest("Não foi possível encontrar o filme com id" + id);
             }
-            else
-            {
-                return BadRequest("No image file provided.");
+            return Ok(dto);
+        }
+
+        [HttpPut("{id}")]
+
+        public IActionResult AtualizarFilme(int id,[FromForm] UpdateFilmeDto dto )
+        {
+            ReadFilmeDto readDto = _interfaces.Editar(id, dto);
+            if(dto == null){
+                return BadRequest("Não foi possível editar o filme com id" + id);
             }
+            return Ok(dto);
+        }
+
+        [HttpDelete("{id}")]
+
+        public IActionResult DeletarFilme(int id)
+        {
+            bool deletado = _interfaces.excluir(id);
+            if(deletado == true){
+                return Ok();
+            }
+            return BadRequest("Não foi possível excluir o filme com id" + id);
+           
         }
     }
 }

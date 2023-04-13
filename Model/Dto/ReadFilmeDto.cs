@@ -18,7 +18,7 @@ namespace ms_filmes.Model.Dto
         public DateTime DataLancamento { get; set; }
         public string Genero { get; set; }
 
-        public IFormFile Imagem { get; set; }
+        public byte[] Imagem { get; set; }
 
     }
 

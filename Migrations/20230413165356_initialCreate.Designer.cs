@@ -12,7 +12,7 @@ using ms_filmes.Data;
 namespace ms_filmes.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230411184815_initialCreate")]
+    [Migration("20230413165356_initialCreate")]
     partial class initialCreate
     {
         /// <inheritdoc />
@@ -42,6 +42,10 @@ namespace ms_filmes.Migrations
                     b.Property<string>("Genero")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Imagem")
+                        .IsRequired()
+                        .HasColumnType("bytea");
 
                     b.Property<string>("Titulo")
                         .IsRequired()

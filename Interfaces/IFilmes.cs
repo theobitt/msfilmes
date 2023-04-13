@@ -8,6 +8,6 @@ namespace ms_filmes.Interfaces
 {
     public interface IFilmes : IBaseInt<AddFilmeDto, ReadFilmeDto>, IUpdate<UpdateFilmeDto, ReadFilmeDto>
     {
-         ReadFilmeDto CadastrarFilme(AddFilmeDto dto, IFormFile imageFile);
+         ReadFilmeDto CadastrarFilme(AddFilmeDto dto);
     }
 }

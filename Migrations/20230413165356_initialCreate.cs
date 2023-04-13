@@ -20,7 +20,8 @@ namespace ms_filmes.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Titulo = table.Column<string>(type: "text", nullable: false),
                     DataLancamento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Genero = table.Column<string>(type: "text", nullable: false)
+                    Genero = table.Column<string>(type: "text", nullable: false),
+                    Imagem = table.Column<byte[]>(type: "bytea", nullable: false)
                 },
                 constraints: table =>
                 {
