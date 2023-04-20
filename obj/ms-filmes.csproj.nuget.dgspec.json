@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj": {}
+    "c:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj": {
+    "c:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj",
+        "projectUniqueName": "c:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj",
         "projectName": "ms-filmes",
-        "projectPath": "C:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj",
+        "projectPath": "c:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\ms-filmes.csproj",
         "packagesPath": "C:\\Users\\theo.dsn.pack\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\obj\\",
+        "outputPath": "c:\\Users\\theo.dsn.pack\\Documents\\Desktop\\Projetos\\Pessoais\\CSharp\\API Filmes\\ms-filmes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\theo.dsn.pack\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AWSSDK": {
+              "target": "Package",
+              "version": "[2.3.55.2, )"
+            },
+            "AWSSDK.Core": {
+              "target": "Package",
+              "version": "[3.7.106.20, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
@@ -57,6 +65,18 @@
             "FluentResults": {
               "target": "Package",
               "version": "[3.15.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[7.0.5, )"
             },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
@@ -89,6 +109,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.4, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Npgsql": {
               "target": "Package",

@@ -52,10 +52,12 @@ namespace ms_filmes.Domain
             Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
             if (filme != null)
             {
-                var stream = new MemoryStream();
-                dto.Imagem.CopyTo(stream);
-                byte[] imageBytes = stream.ToArray();
-                filme.Imagem = imageBytes;
+                if(dto.Imagem != null){
+                filme.Imagem = dto.Imagem;
+                }
+                filme.Titulo = dto.Titulo; 
+                filme.Genero = dto.Genero;
+                filme.DataLancamento = dto.DataLancamento; 
                 ReadFilmeDto readFilmeDto = _mapper.Map<ReadFilmeDto>(filme);
                 _context.SaveChanges();
                 return readFilmeDto;
@@ -87,11 +89,11 @@ namespace ms_filmes.Domain
                 _context.SaveChanges();
             }
             ReadFilmeDto readDto = _mapper.Map<ReadFilmeDto>(filme);
-            readDto.Imagem =  filme.Imagem;
+            readDto.Imagem = filme.Imagem;
             return readDto;
 
         }
 
-        
+
     }
 }

@@ -1,22 +1,26 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ms_filmes.Model.Dto
 {
     public class UpdateFilmeDto
     {
+        // [Required]
+        public string Titulo { get; set; } = null!;
 
-        public string Titulo { get; set; }
+        // [Required]
+        public DateTime? DataLancamento { get; set; } = null!;
 
-        public DateTime DataLancamento { get; set; }
-
-        public string Genero { get; set; }
+        // [Required]
+        public string Genero { get; set; }  = null!;
         
-        public IFormFile Imagem { get; set; }
+        // [BindNever]
+        public byte[] Imagem { get; set; }
 
     }
 }

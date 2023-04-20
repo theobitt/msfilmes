@@ -13,10 +13,10 @@ namespace ms_filmes.Model.Dto
     {
         public int Id { get; set; }
 
-        public string Titulo { get; set; }
+        public string Titulo { get; set; } = null!;
 
-        public DateTime DataLancamento { get; set; }
-        public string Genero { get; set; }
+        public DateTime? DataLancamento { get; set; } = null!;
+        public string Genero { get; set; } = null!;
 
         public byte[] Imagem { get; set; }
 

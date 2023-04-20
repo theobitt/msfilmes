@@ -66,3 +66,16 @@ C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-
 C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\obj\Debug\net7.0\ms-filmes.pdb
 C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\obj\Debug\net7.0\ms-filmes.genruntimeconfig.cache
 C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\obj\Debug\net7.0\ref\ms-filmes.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\AWSSDK.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\AWSSDK.Core.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\theo.dsn.pack\Documents\Desktop\Projetos\Pessoais\CSharp\API Filmes\ms-filmes\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
